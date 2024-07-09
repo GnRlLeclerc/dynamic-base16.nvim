@@ -1,5 +1,6 @@
 --- @class Config
 --- @field module string?
+--- @field transparent boolean?
 
 --- @class Colors
 --- @field base00 string?
