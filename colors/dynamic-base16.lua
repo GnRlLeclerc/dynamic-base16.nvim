@@ -14,6 +14,7 @@ local colors = base16.colors
 
 -- copied from RRethy/base16-nvim
 -- inspired by rose-pine/neovim
+-- TODO : une fois que c'est bon,
 
 -- Define the highlight groups
 local highlights = {
@@ -97,10 +98,10 @@ local highlights = {
   DiffRemoved  = { link = "DiffDelete" },
 
   -- Spelling highlighting
-  SpellBad     = { sp = colors.base08, },
-  SpellLocal   = { sp = colors.base0C },
-  SpellCap     = { sp = colors.base0D },
-  SpellRare    = { sp = colors.base0E },
+  SpellBad     = { sp = colors.base08, fmt = "undercurl" },
+  SpellLocal   = { sp = colors.base0C, fmt = "undercurl" },
+  SpellCap     = { sp = colors.base0D, fmt = "undercurl" },
+  SpellRare    = { sp = colors.base0E, fmt = "undercurl" },
 
 
   DiagnosticError          = { fg = colors.base08 },
@@ -119,14 +120,14 @@ local highlights = {
   DiagnosticSignHint       = { link = "DiagnosticHint" },
   DiagnosticSignInfo       = { link = "DiagnosticInfo" },
   DiagnosticSignWarn       = { link = "DiagnosticWarn" },
-  DiagnosticUnderlineError = { sp = colors.base08 },
-  DiagnosticUnderlineHint  = { sp = colors.base0C },
-  DiagnosticUnderlineInfo  = { sp = colors.base0F },
-  DiagnosticUnderlineWarn  = { sp = colors.base0E },
+  DiagnosticUnderlineError = { sp = colors.base08, fmt = 'undercurl' },
+  DiagnosticUnderlineHint  = { sp = colors.base0C, fmt = 'undercurl' },
+  DiagnosticUnderlineInfo  = { sp = colors.base0F, fmt = 'undercurl' },
+  DiagnosticUnderlineWarn  = { sp = colors.base0E, fmt = 'undercurl' },
 
-  LspReferenceText         = { bg = colors.base04 },
-  LspReferenceRead         = { bg = colors.base04 },
-  LspReferenceWrite        = { bg = colors.base04 },
+  LspReferenceText         = { bg = colors.base04, fmt = "underline" },
+  LspReferenceRead         = { bg = colors.base04, fmt = "underline" },
+  LspReferenceWrite        = { bg = colors.base04, fmt = "underline" },
 
   -- Treesitter support
 
@@ -134,18 +135,18 @@ local highlights = {
   TSAttribute              = { fg = colors.base0A },
   TSBoolean                = { fg = colors.base09 },
   TSCharacter              = { fg = colors.base08 },
-  TSComment                = { fg = colors.base03 },
+  TSComment                = { fg = colors.base03, fmt = 'italic' },
   TSConstructor            = { fg = colors.base0D },
   TSConditional            = { fg = colors.base0E },
   TSConstant               = { fg = colors.base09 },
-  TSConstBuiltin           = { fg = colors.base09 },
+  TSConstBuiltin           = { fg = colors.base09, fmt = 'italic' },
   TSConstMacro             = { fg = colors.base08 },
   TSError                  = { fg = colors.base08 },
   TSException              = { fg = colors.base08 },
   TSField                  = { fg = colors.base05 },
   TSFloat                  = { fg = colors.base09 },
   TSFunction               = { fg = colors.base0D },
-  TSFuncBuiltin            = { fg = colors.base0D },
+  TSFuncBuiltin            = { fg = colors.base0D, fmt = 'italic' },
   TSFuncMacro              = { fg = colors.base08 },
   TSInclude                = { fg = colors.base0D },
   TSKeyword                = { fg = colors.base0E },
@@ -171,22 +172,22 @@ local highlights = {
   TSTag                    = { fg = colors.base08 },
   TSTagDelimiter           = { fg = colors.base0F },
   TSText                   = { fg = colors.base05 },
-  TSEmphasis               = { fg = colors.base09 },
-  TSUnderline              = { fg = colors.base00 },
-  TSStrike                 = { fg = colors.base00 },
+  TSEmphasis               = { fg = colors.base09, fmt = 'italic' },
+  TSUnderline              = { fg = colors.base00, fmt = 'underline' },
+  TSStrike                 = { fg = colors.base00, fmt = 'strikethrough' },
   TSTitle                  = { fg = colors.base0D },
   TSLiteral                = { fg = colors.base09 },
-  TSURI                    = { fg = colors.base09 },
+  TSURI                    = { fg = colors.base09, fmt = 'underline' },
   TSType                   = { fg = colors.base0A },
   TSTypeBuiltin            = { fg = colors.base0A },
   TSVariable               = { fg = colors.base08 },
-  TSVariableBuiltin        = { fg = colors.base08 },
+  TSVariableBuiltin        = { fg = colors.base08, fmt = 'italic' },
 
   TSDefinition             = { fg = nil, bg = nil },
   TSDefinitionUsage        = { fg = nil, bg = nil },
-  TSCurrentScope           = { fg = nil, bg = nil },
+  TSCurrentScope           = { fg = nil, bg = nil, fmt = 'bold' },
 
-  LspInlayHint             = { fg = colors.base03, bg = nil, sp = nil },
+  LspInlayHint             = { fg = colors.base03, bg = nil, sp = nil, fmt = 'italic' },
 
 
   -- TODO : la suite
