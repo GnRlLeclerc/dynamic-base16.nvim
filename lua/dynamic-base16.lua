@@ -52,7 +52,7 @@ function M.setup(config)
   M.config = vim.tbl_extend('force', M, config)
 
   -- Set the color scheme
-  vim.cmd('colorscheme dynamic-base16')
+  vim.api.nvim_command('colorscheme dynamic-base16')
 end
 
 -- Set custom colors for the color scheme
