@@ -98,10 +98,10 @@ local highlights = {
   DiffRemoved  = { link = "DiffDelete" },
 
   -- Spelling highlighting
-  SpellBad     = { sp = colors.base08, fmt = "undercurl" },
-  SpellLocal   = { sp = colors.base0C, fmt = "undercurl" },
-  SpellCap     = { sp = colors.base0D, fmt = "undercurl" },
-  SpellRare    = { sp = colors.base0E, fmt = "undercurl" },
+  SpellBad     = { sp = colors.base08, undercurl = true },
+  SpellLocal   = { sp = colors.base0C, undercurl = true },
+  SpellCap     = { sp = colors.base0D, undercurl = true },
+  SpellRare    = { sp = colors.base0E, undercurl = true },
 
 
   DiagnosticError          = { fg = colors.base08 },
@@ -120,14 +120,14 @@ local highlights = {
   DiagnosticSignHint       = { link = "DiagnosticHint" },
   DiagnosticSignInfo       = { link = "DiagnosticInfo" },
   DiagnosticSignWarn       = { link = "DiagnosticWarn" },
-  DiagnosticUnderlineError = { sp = colors.base08, fmt = 'undercurl' },
-  DiagnosticUnderlineHint  = { sp = colors.base0C, fmt = 'undercurl' },
-  DiagnosticUnderlineInfo  = { sp = colors.base0F, fmt = 'undercurl' },
-  DiagnosticUnderlineWarn  = { sp = colors.base0E, fmt = 'undercurl' },
+  DiagnosticUnderlineError = { sp = colors.base08, undercurl = true },
+  DiagnosticUnderlineHint  = { sp = colors.base0C, undercurl = true },
+  DiagnosticUnderlineInfo  = { sp = colors.base0F, undercurl = true },
+  DiagnosticUnderlineWarn  = { sp = colors.base0E, undercurl = true },
 
-  LspReferenceText         = { bg = colors.base04, fmt = "underline" },
-  LspReferenceRead         = { bg = colors.base04, fmt = "underline" },
-  LspReferenceWrite        = { bg = colors.base04, fmt = "underline" },
+  LspReferenceText         = { bg = colors.base04, underline = true },
+  LspReferenceRead         = { bg = colors.base04, underline = true },
+  LspReferenceWrite        = { bg = colors.base04, underline = true },
 
   -- Treesitter support
 
@@ -135,18 +135,18 @@ local highlights = {
   TSAttribute              = { fg = colors.base0A },
   TSBoolean                = { fg = colors.base09 },
   TSCharacter              = { fg = colors.base08 },
-  TSComment                = { fg = colors.base03, fmt = 'italic' },
+  TSComment                = { fg = colors.base03, italic = true },
   TSConstructor            = { fg = colors.base0D },
   TSConditional            = { fg = colors.base0E },
   TSConstant               = { fg = colors.base09 },
-  TSConstBuiltin           = { fg = colors.base09, fmt = 'italic' },
+  TSConstBuiltin           = { fg = colors.base09, italic = true },
   TSConstMacro             = { fg = colors.base08 },
   TSError                  = { fg = colors.base08 },
   TSException              = { fg = colors.base08 },
   TSField                  = { fg = colors.base05 },
   TSFloat                  = { fg = colors.base09 },
   TSFunction               = { fg = colors.base0D },
-  TSFuncBuiltin            = { fg = colors.base0D, fmt = 'italic' },
+  TSFuncBuiltin            = { fg = colors.base0D, italic = true },
   TSFuncMacro              = { fg = colors.base08 },
   TSInclude                = { fg = colors.base0D },
   TSKeyword                = { fg = colors.base0E },
@@ -172,22 +172,22 @@ local highlights = {
   TSTag                    = { fg = colors.base08 },
   TSTagDelimiter           = { fg = colors.base0F },
   TSText                   = { fg = colors.base05 },
-  TSEmphasis               = { fg = colors.base09, fmt = 'italic' },
-  TSUnderline              = { fg = colors.base00, fmt = 'underline' },
-  TSStrike                 = { fg = colors.base00, fmt = 'strikethrough' },
+  TSEmphasis               = { fg = colors.base09, italic = true },
+  TSUnderline              = { fg = colors.base00, underline = true },
+  TSStrike                 = { fg = colors.base00, strikethrough = true },
   TSTitle                  = { fg = colors.base0D },
   TSLiteral                = { fg = colors.base09 },
-  TSURI                    = { fg = colors.base09, fmt = 'underline' },
+  TSURI                    = { fg = colors.base09, underline = true },
   TSType                   = { fg = colors.base0A },
   TSTypeBuiltin            = { fg = colors.base0A },
   TSVariable               = { fg = colors.base08 },
-  TSVariableBuiltin        = { fg = colors.base08, fmt = 'italic' },
+  TSVariableBuiltin        = { fg = colors.base08, italic = true },
 
   TSDefinition             = { fg = nil, bg = nil },
   TSDefinitionUsage        = { fg = nil, bg = nil },
-  TSCurrentScope           = { fg = nil, bg = nil, fmt = 'bold' },
+  TSCurrentScope           = { fg = nil, bg = nil, bold = true },
 
-  LspInlayHint             = { fg = colors.base03, bg = nil, sp = nil, fmt = 'italic' },
+  LspInlayHint             = { fg = colors.base03, bg = nil, sp = nil, italic = true },
 
 
   -- TODO : la suite
@@ -203,11 +203,6 @@ local highlights = {
 
 -- Apply all highlight groups
 for group, highlight in pairs(highlights) do
-  -- Resolve links to other highlight groups
-  while highlight.link ~= nil do
-    highlight = highlights[highlight.link] or {}
-  end
-
   -- Set the highlight group
   vim.api.nvim_set_hl(0, group, highlight)
 end
