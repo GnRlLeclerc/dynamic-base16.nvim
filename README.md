@@ -19,9 +19,9 @@ return {
 
 ## Usage
 
-This theme is primarily intended to be used with base16 theme generators such as [Flavours](https://github.com/Misterio77/flavours). When setup with the `module = 'your_colors'`, it will try to load the colors from the `'your_colors'` lua module, which must be available in the lua runtimepath.
+This theme is primarily intended to be used with base16 theme generators such as [Flavours](https://github.com/Misterio77/flavours). When setup with the `module = 'your_colors'` option, it will try to load the colors from the `'your_colors'` lua module, which must be available in the lua runtimepath.
 
-Here is a minimal example of configuration with Flavours:
+Here is a minimal configuration example for Flavours:
 
 `~/.config/flavours/config.toml`
 

@@ -46,10 +46,10 @@ local M = {
 }
 
 -- Setup the Dynamic Base16 color scheme
---- @param config Config
+--- @param config Config?
 function M.setup(config)
   -- Store the config in the module
-  M.config = vim.tbl_extend('force', M, config)
+  M.config = vim.tbl_extend('force', M, config or {})
 
   -- Set the color scheme
   vim.api.nvim_command('colorscheme dynamic-base16')
