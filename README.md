@@ -93,3 +93,17 @@ require('dynamic-base16').set_colors({
 })
 
 ```
+
+## Supported plugins
+
+### Lualine
+
+Specify the `dynamic-base16` theme in your lualine configuration:
+
+```lua
+require('lualine').setup({
+  options = {
+    theme = 'dynamic-base16',
+  },
+})
+```

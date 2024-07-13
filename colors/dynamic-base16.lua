@@ -93,7 +93,9 @@ local highlights = {
   DiffAdded = { link = 'DiffAdd' },
   DiffChanged = { link = 'DiffChange' },
   DiffRemoved = { link = 'DiffDelete' },
-
+  Added = { link = 'DiffAdd' },
+  Changed = { link = 'DiffChange' },
+  Removed = { link = 'DiffDelete' },
   -- Spelling highlighting
   SpellBad = { sp = colors.base08, undercurl = true },
   SpellLocal = { sp = colors.base0C, undercurl = true },
