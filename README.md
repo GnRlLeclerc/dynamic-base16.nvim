@@ -2,7 +2,7 @@
 
 Dynamic Base16 is a minimal base16-based theme for neovim that relies on external color definitions. It was made to be used with tools like [Flavours](https://github.com/Misterio77/flavours) for live theme hopping. No prebuilt themes are included. Tested on Linux only.
 
-It is based on the [base16-nvim](https://github.com/RRethy/base16-nvim/tree/master) theme, with inspirations from [onedark.nvim](https://github.com/navarasu/onedark.nvim).
+It is based on the [base16-nvim](https://github.com/RRethy/base16-nvim/tree/master) theme, with inspirations from [onedark.nvim](https://github.com/navarasu/onedark.nvim) and [rose-pine-neovim](https://github.com/rose-pine/neovim).
 
 ## Installation
 

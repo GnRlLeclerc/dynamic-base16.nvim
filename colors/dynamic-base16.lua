@@ -212,12 +212,23 @@ local transparent_backgrounds = {
   'TabLineSel',
 }
 
+local file = io.open('/home/thibaut/Projects/github/dynamic-base16.nvim/logs.txt', 'w') -- Creates a new file or overwrites existing
+
 -- Apply all highlight groups
 for group, highlight in pairs(highlights) do
+  file:write('Checking highlight ')
+  file:write(group)
+  file:write(' - ')
   if config.transparent and transparent_backgrounds[group] ~= nil then
+    file:write('Transparent')
     highlight.bg = 'NONE'
+  else
+    file:write('Not')
   end
+  file:write('\n')
 
   -- Set the highlight group
   vim.api.nvim_set_hl(0, group, highlight)
 end
+
+file:close()
