@@ -190,16 +190,34 @@ local highlights = {
   NvimInternalError = { link = 'ErrorMsg' },
 
   NormalFloat = { fg = colors.base05, bg = 'NONE' },
-  -- TODO : border is NONE if transparency
   FloatBorder = { fg = colors.base05, bg = colors.base00 },
   NormalNC = { fg = colors.base05, bg = colors.base00 },
 
   TreesitterContext = { bg = colors.base01 },
-  NotifyBackground = { bg = '#ff0000' },
+}
+
+local transparent_backgroungs = {
+  'FloatBorder',
+  'Folded',
+  'NormalFloat',
+  'Normal',
+  'NormalNC',
+  'Pmenu',
+  'PmenuKind',
+  'SignColumn',
+  'StatusLine',
+  'StatusLineNC',
+  'TabLine',
+  'TabLineFill',
+  'TabLineSel',
 }
 
 -- Apply all highlight groups
 for group, highlight in pairs(highlights) do
+  if config.transparent then
+    highlight.bg = 'NONE'
+  end
+
   -- Set the highlight group
   vim.api.nvim_set_hl(0, group, highlight)
 end
