@@ -196,7 +196,7 @@ local highlights = {
   TreesitterContext = { bg = colors.base01 },
 }
 
-local transparent_backgroungs = {
+local transparent_backgrounds = {
   'FloatBorder',
   'Folded',
   'NormalFloat',
@@ -214,7 +214,7 @@ local transparent_backgroungs = {
 
 -- Apply all highlight groups
 for group, highlight in pairs(highlights) do
-  if config.transparent then
+  if config.transparent and transparent_backgrounds[group] ~= nil then
     highlight.bg = 'NONE'
   end
 
