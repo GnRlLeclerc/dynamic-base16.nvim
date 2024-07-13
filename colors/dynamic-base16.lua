@@ -87,7 +87,7 @@ local highlights = {
 
   -- Diff highlighting
   DiffAdd = { fg = colors.base0B },
-  DiffChange = { fg = colors.base0D },
+  DiffChange = { fg = colors.base0C },
   DiffDelete = { fg = colors.base08 },
   DiffText = { fg = colors.base0D },
   DiffAdded = { link = 'DiffAdd' },
