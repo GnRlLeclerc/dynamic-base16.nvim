@@ -197,38 +197,27 @@ local highlights = {
 }
 
 local transparent_backgrounds = {
-  'FloatBorder',
-  'Folded',
-  'NormalFloat',
-  'Normal',
-  'NormalNC',
-  'Pmenu',
-  'PmenuKind',
-  'SignColumn',
-  'StatusLine',
-  'StatusLineNC',
-  'TabLine',
-  'TabLineFill',
-  'TabLineSel',
+  FloatBorder = true,
+  Folded = true,
+  NormalFloat = true,
+  Normal = true,
+  NormalNC = true,
+  Pmenu = true,
+  PmenuKind = true,
+  SignColumn = true,
+  StatusLine = true,
+  StatusLineNC = true,
+  TabLine = true,
+  TabLineFill = true,
+  TabLineSel = true,
 }
-
-local file = io.open('/home/thibaut/Projects/github/dynamic-base16.nvim/logs.txt', 'w') -- Creates a new file or overwrites existing
 
 -- Apply all highlight groups
 for group, highlight in pairs(highlights) do
-  file:write('Checking highlight ')
-  file:write(group)
-  file:write(' - ')
   if config.transparent and transparent_backgrounds[group] ~= nil then
-    file:write('Transparent')
     highlight.bg = 'NONE'
-  else
-    file:write('Not')
   end
-  file:write('\n')
 
   -- Set the highlight group
   vim.api.nvim_set_hl(0, group, highlight)
 end
-
-file:close()
