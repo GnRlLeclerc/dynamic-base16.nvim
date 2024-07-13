@@ -195,7 +195,7 @@ local highlights = {
   NormalNC = { fg = colors.base05, bg = colors.base00 },
 
   TreesitterContext = { bg = colors.base01 },
-  NotifyBackground = { bg = 'NONE' },
+  NotifyBackground = { bg = '#ff0000' },
 }
 
 -- Apply all highlight groups
