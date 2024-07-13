@@ -86,10 +86,10 @@ local highlights = {
   Typedef = { fg = colors.base0A },
 
   -- Diff highlighting
-  DiffAdd = { fg = colors.base0B, bg = colors.base00 },
-  DiffChange = { fg = colors.base03, bg = colors.base00 },
-  DiffDelete = { fg = colors.base08, bg = colors.base00 },
-  DiffText = { fg = colors.base0D, bg = colors.base00 },
+  DiffAdd = { fg = colors.base0B },
+  DiffChange = { fg = colors.base0D },
+  DiffDelete = { fg = colors.base08 },
+  DiffText = { fg = colors.base0D },
   DiffAdded = { link = 'DiffAdd' },
   DiffChanged = { link = 'DiffChange' },
   DiffRemoved = { link = 'DiffDelete' },
