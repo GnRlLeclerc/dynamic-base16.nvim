@@ -63,7 +63,7 @@ function M.setup(config)
     --- @type string
     --- @diagnostic disable-next-line: assign-type-mismatch
     local path = type(config.watch) == 'string' and config.watch
-      or string.format('~/.config/nvim/lua/%s.lua', config.module)
+      or string.format('/home/thibaut/.config/nvim/lua/%s.lua', config.module)
     vim.notify(string.format('watching path %s', path))
 
     local callback = function()
