@@ -1,6 +1,7 @@
 --- @class Config
 --- @field module string?
 --- @field transparent boolean?
+--- @field watch boolean | string?
 
 --- @class Colors
 --- @field base00 string?
@@ -52,7 +53,22 @@ function M.setup(config)
   M.config = vim.tbl_extend('force', M, config or {})
 
   -- Set the color scheme
-  vim.api.nvim_command('colorscheme dynamic-base16')
+  vim.cmd('colorscheme dynamic-base16')
+
+  -- If setup, watch the color module and reapply theme on changes
+  if config and config.watch and config.module then
+    --- @type string
+    --- @diagnostic disable-next-line: assign-type-mismatch
+    local path = type(config.watch) == 'string' and config.watch
+      or string.format('~/.config/nvim/lua/%s.lua', config.module)
+
+    local callback = function()
+      -- Reset the color theme on change
+      vim.cmd('colorscheme dynamic-base16')
+    end
+
+    require('dynamic-base16.fs_watch').watch(path, callback)
+  end
 end
 
 -- Set custom colors for the color scheme
