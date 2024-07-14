@@ -1,21 +1,5 @@
 -- File watching logic
 
--- DEBUG
-local function dump(o)
-  if type(o) == 'table' then
-    local s = '{ '
-    for k, v in pairs(o) do
-      if type(k) ~= 'number' then
-        k = '"' .. k .. '"'
-      end
-      s = s .. '[' .. k .. '] = ' .. dump(v) .. ','
-    end
-    return s .. '} '
-  else
-    return tostring(o)
-  end
-end
-
 local M = {}
 
 -- Watch a path for changes, call a callback on every change
@@ -24,10 +8,8 @@ local M = {}
 function M.watch(path, callback)
   local handle = vim.uv.new_fs_event()
 
-  vim.notify('Starting watch handle.')
-
   if handle == nil then
-    vim.notify('Error starting watch handle.')
+    vim.notify('Error starting watch handle.', vim.log.levels.ERROR)
     return
   end
 
@@ -37,18 +19,14 @@ function M.watch(path, callback)
     recursive = true,
   }
 
-  local uv_callback = function(err, _, events)
+  local uv_callback = function(err, _, _)
     if err then
-      vim.notify(string.format('Error: %s', err, 'error'))
+      vim.notify(string.format('Error: %s', err), vim.log.levels.ERROR)
       return
     end
 
-    -- Reset the color theme on change
-    -- DEBUG
-    vim.notify(dump(events))
-    if events[1] == 'change' then
-      callback()
-    end
+    -- Apply the callback on any event (change, rename, create...)
+    callback()
   end
 
   vim.uv.fs_event_start(handle, path, watch_config, uv_callback)

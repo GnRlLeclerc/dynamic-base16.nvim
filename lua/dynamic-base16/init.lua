@@ -55,16 +55,12 @@ function M.setup(config)
   -- Set the color scheme
   vim.cmd('colorscheme dynamic-base16')
 
-  -- DEBUG
-  vim.notify(string.format('%s %s', config.watch, config.module))
-
   -- If setup, watch the color module and reapply theme on changes
   if config and config.watch and config.module then
     --- @type string
     --- @diagnostic disable-next-line: assign-type-mismatch
     local path = type(config.watch) == 'string' and config.watch
-      or string.format('/home/thibaut/.config/nvim/lua/%s.lua', config.module)
-    vim.notify(string.format('watching path %s', path))
+      or string.format('%s/.config/nvim/lua/%s.lua', os.getenv('HOME'), config.module)
 
     local callback = function()
       -- Reset the color theme on change
