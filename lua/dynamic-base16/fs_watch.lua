@@ -24,6 +24,8 @@ local M = {}
 function M.watch(path, callback)
   local handle = vim.uv.new_fs_event()
 
+  vim.notify('Starting watch handle.')
+
   if handle == nil then
     vim.notify('Error starting watch handle.')
     return
