@@ -26,7 +26,7 @@ function M.watch(path, callback)
     end
 
     -- Apply the callback on any event (change, rename, create...)
-    callback()
+    vim.schedule(callback)
   end
 
   vim.uv.fs_event_start(handle, path, watch_config, uv_callback)

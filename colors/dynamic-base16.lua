@@ -5,8 +5,10 @@ local config = base16.config
 -- Reload the custom colors module if it is specified
 if config.module ~= nil then
   package.loaded[config.module] = nil
-  local colors = require(config.module)
-  base16.set_colors(colors)
+  local success, colors = pcall(require, config.module)
+  if success then
+    base16.set_colors(colors)
+  end
 end
 
 -- Load colors after having loaded the custom module

@@ -36,6 +36,15 @@ hook = "nvim-reload-scheme"  # See live reloading section
 
 ### Live reloading
 
+#### Default
+
+The easiest way to setup live reloading is to use the `watch` config option.
+
+When set to `true`, the plugin will watch the file / directory under `$HOME/.config/nvim/lua/$module.lua`.
+You can set it to a custom **absolute** path if you want to watch something else.
+
+#### Flavours hook
+
 The colorscheme can be live reloaded when running flavours. You must install the [`neovim-remote`](https://pypi.org/project/neovim-remote/) python package first.
 
 `~/.local/bin/nvim-reload-scheme`
@@ -64,6 +73,7 @@ return {
     require('dynamic-base16').setup({
       module = 'base16_colors',  -- default: nil
       transparent = false,  -- Transparent background
+      watch = false,  -- Watch the module file for live reloads
     })
   end
 }
