@@ -4,6 +4,8 @@ Dynamic Base16 is a minimal base16-based theme for neovim that relies on externa
 
 It is based on the [base16-nvim](https://github.com/RRethy/base16-nvim/tree/master) theme, with inspirations from [onedark.nvim](https://github.com/navarasu/onedark.nvim) and [rose-pine-neovim](https://github.com/rose-pine/neovim).
 
+![thumnail](./images/thumbnail.png)
+
 ## Installation
 
 Using `lazy.nvim`:
